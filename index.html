@@ -298,8 +298,18 @@
   const PLACEHOLDER_IMG = "https://www.garmin.com.tw/m/tw/g/products/venu-x1-moss-pd-01-lg.jpg";
 
   const productSets02 = [
-    { seriesName: "FW-371LET-鉑棕金", imageAlt: "FW-371LET-鉑棕金", desc: "旗艦級多頻 GNSS，內建地圖與高階訓練工具。" },
-    { seriesName: "FW-57GRT-羽月白", imageAlt: "FW-57GRT-羽月白", desc: "輕量 AMOLED，日常與跑訓兼備的全能款。" }
+    {
+      seriesName: "FW-371LET-鉑棕金",
+      imageAlt: "FW-371LET-鉑棕金",
+      imageSrc: "images/FW-371LET-鉑棕金.jpg",
+      desc: "旗艦級多頻 GNSS，內建地圖與高階訓練工具。"
+    },
+    {
+      seriesName: "FW-57GRT-羽月白",
+      imageAlt: "FW-57GRT-羽月白",
+      imageSrc: "images/FW-57GRT-羽月白.jpg",
+      desc: "輕量 AMOLED，日常與跑訓兼備的全能款。"
+    }
   ];
 
   const watchSpecs02 = [
@@ -309,19 +319,6 @@
     { title: "電力<a href=\"javascript:;\" class=\"font-black font-small question-mark\" title=\"說明\">?</a>", watch1: "15天", watch2: "13天" },
     { title: "錶圈材質", both: "兩款皆：鈦金屬" },
     { title: "手電筒<a href=\"javascript:;\" class=\"font-black font-small question-mark\" title=\"說明\">?</a>", watch1: "●", watch2: "" },
-    { title: "內建地圖與導航功能<a href=\"javascript:;\" class=\"font-black font-small question-mark\" title=\"說明\">?</a>", watch1: "●", watch2: "" },
-    { title: "跑步經濟性<a href=\"javascript:;\" class=\"font-black font-small question-mark\" title=\"說明\">?</a>", watch1: "●", watch2: "" },
-    { title: "跑步耐受度<a href=\"javascript:;\" class=\"font-black font-small question-mark\" title=\"說明\">?</a>", watch1: "●", watch2: "" },
-    { title: "撥接電話<a href=\"javascript:;\" class=\"font-black font-small question-mark\" title=\"說明\">?</a>", both: "兩款皆：●" },
-    { title: "離線語音聲控<a href=\"javascript:;\" class=\"font-black font-small question-mark\" title=\"Tooltip\">?</a>", both: "兩款皆：●" },
-    { title: "Garmin Coach 自適應訓練計畫<a href=\"javascript:;\" class=\"font-black font-small question-mark\" title=\"Tooltip\">?</a>", both: "兩款皆：●" },
-    { title: "鐵人三項<a href=\"javascript:;\" class=\"font-black font-small question-mark\" title=\"說明\">?</a>", both: "兩款皆：●" },
-    { title: "訓練完備程度<a href=\"javascript:;\" class=\"font-black font-small question-mark\" title=\"說明\">?</a>", both: "兩款皆：●" },
-    { title: "訓練狀態<a href=\"javascript:;\" class=\"font-black font-small question-mark\" title=\"說明\">?</a>", both: "兩款皆：●" },
-    { title: "內建 GNSS 衛星定位<a href=\"javascript:;\" class=\"font-black font-small question-mark\" title=\"說明\">?</a>", both: "<img src=\"https://www.garmin.com.tw/m/buzz/minisite/find-your-watch-v2/images/icons/gps-50.svg\" alt=\"GPS\" width=\"32\">兩款皆：多頻" },
-    { title: "不帶手機也能聽音樂<a href=\"javascript:;\" class=\"font-black font-small question-mark\" title=\"說明\">?</a>", both: "<img src=\"https://www.garmin.com.tw/m/buzz/minisite/find-your-watch-v2/images/icons/music.svg\" alt=\"音樂\" width=\"32\">兩款皆可" },
-    { title: "QUICK RELEASE 錶帶", watch1: "", watch2: "●" },
-    { title: "QUICKFIT 錶帶", watch1: "●", watch2: "" }
   ];
 
   const productContainer02 = document.getElementById("top-products-02");
@@ -330,7 +327,7 @@
     card.className = "product-card";
 
     const img = document.createElement("img");
-    img.src = PLACEHOLDER_IMG;
+    img.src = item.imageSrc || PLACEHOLDER_IMG;
     img.alt = item.imageAlt;
     card.appendChild(img);
 
