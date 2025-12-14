@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Landing Page</title>
+  <style>
+    :root {
+      --page-bg: #f3d878;
+      --text-color: #1f1f1f;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--page-bg);
+      color: var(--text-color);
+      font-family: "Segoe UI", "Noto Sans TC", system-ui, -apple-system, sans-serif;
+    }
+    main {
+      width: 100%;
+      min-height: 100vh;
+      padding: 0;
+    }
+    .hero {
+      position: relative;
+      border-radius: 12px;
+      padding: 48px 0 64px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 24px;
+      overflow: hidden;
+      box-shadow: 0 24px 48px rgba(0, 0, 0, 0.08);
+    }
+    .hero__bg {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      height: 100%;
+      width: min(2000px, 100vw);
+      object-fit: cover;
+      pointer-events: none;
+      z-index: 0;
+    }
+    .hero__main {
+      width: auto;
+      max-width: 100%;
+      height: auto;
+      display: block;
+      filter: drop-shadow(0 12px 24px rgba(0, 0, 0, 0.12));
+      position: relative;
+      z-index: 1;
+    }
+    .hero__badge {
+      width: auto;
+      max-width: 100%;
+      height: auto;
+      cursor: pointer;
+      transition: transform 240ms ease, filter 240ms ease;
+      filter: drop-shadow(0 10px 22px rgba(0, 0, 0, 0.16));
+      position: relative;
+      z-index: 1;
+    }
+    .hero__badge:hover {
+      transform: translateY(-4px) scale(1.02);
+      animation: flicker 1.1s infinite ease-in-out;
+    }
+    @keyframes flicker {
+      0% { filter: brightness(1) drop-shadow(0 10px 22px rgba(0,0,0,0.16)); }
+      40% { filter: brightness(1.15) drop-shadow(0 12px 26px rgba(0,0,0,0.20)); }
+      70% { filter: brightness(0.92) drop-shadow(0 8px 18px rgba(0,0,0,0.12)); }
+      100% { filter: brightness(1.1) drop-shadow(0 12px 26px rgba(0,0,0,0.18)); }
+    }
+    .features {
+      width: 100%;
+      max-width: 1000px;
+      margin: 0 auto;
+      display: flex;
+      flex-direction: column;
+      gap: 0;
+    }
+    .features img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+    /* top-sell02 module */
+    .top-sell02 {
+      padding: 32px 0 48px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 16px;
+    }
+    .top-sell02 h2 {
+      width: 100%;
+      max-width: 1220px;
+      font-size: 1.4rem;
+      margin: 0 0 12px;
+      font-weight: 800;
+      padding: 0 12px;
+      box-sizing: border-box;
+    }
+    .top-sell02 .font-gray { color: #999; }
+    .top-sell02 .font-small { font-size: 0.8rem; }
+    .top-sell02 .font-normal { font-size: 1rem; }
+    .top-sell02 .font-dark-gray { color: #666; }
+    .top-sell02 .font-black { color: #111; }
+    .top-sell02 .centered-title { background: #fff; padding: 0 10px; }
+    .top-sell02 .question-mark {
+      border: 1px solid black;
+      border-radius: 50%;
+      padding: 0.5px 5px;
+      margin-left: 5px;
+      vertical-align: text-top;
+      font-size: 0.9em;
+    }
+    .top-sell02 .top-sell-product {
+      width: 100%;
+      max-width: 1220px;
+      margin: 0 auto 30px;
+      position: relative;
+      padding: 0 12px;
+      box-sizing: border-box;
+    }
+    .top-sell02 .top-sell-product-scroll {
+      position: sticky;
+      top: -120px;
+      left: 0;
+      z-index: 2;
+    }
+    .top-sell02 .top-sell-product-content {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+      background: #fff;
+      margin: 0 auto 16px auto;
+      padding: 12px;
+      border-radius: 10px;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.06);
+    }
+    .top-sell02 .product-card {
+      background: #fff;
+      border: 1px solid #d5d5d5;
+      border-radius: 10px;
+      padding: 10px;
+      text-align: center;
+      box-shadow: 0 8px 18px rgba(0,0,0,0.05);
+    }
+    .top-sell02 .product-card img {
+      width: 100%;
+      max-width: 180px;
+      display: block;
+      margin: 0 auto 8px;
+      background: #fff;
+      border-radius: 8px;
+      border: 1px solid #d5d5d5;
+    }
+    .top-sell02 .product-card h3 {
+      margin: 6px 0 4px;
+      font-size: 1rem;
+      font-weight: 800;
+    }
+    .top-sell02 .product-card p {
+      margin: 0;
+      color: #666;
+      font-size: 0.92rem;
+      line-height: 1.4;
+    }
+    .top-sell02 .compare-item-wrapper {
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 12px 30px rgba(0,0,0,0.06);
+      padding: 16px 10px 10px;
+    }
+    .top-sell02 .compare-item {
+      margin: 0 auto 16px;
+      position: relative;
+    }
+    .top-sell02 .compare-item-name {
+      width: 100%;
+      margin-bottom: 12px;
+      text-align: center;
+      position: sticky;
+      top: 0;
+      left: 0;
+      z-index: 1;
+    }
+    .top-sell02 .compare-item-content {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 10px;
+      align-items: stretch;
+      justify-items: stretch;
+      position: relative;
+    }
+    .top-sell02 .compare-item-content::before {
+      content: '';
+      width: 100%;
+      height: 1px;
+      background-color: #d5d5d5;
+      position: absolute;
+      top: -18px;
+      left: 0;
+    }
+    .top-sell02 .compare-item-content h5 {
+      margin: 0;
+      padding: 8px;
+      text-align: center;
+      min-height: 44px;
+      border-radius: 8px;
+      background: #f8f8f8;
+      border: 1px solid #ececec;
+    }
+    .top-sell02 .compare-item-content .full {
+      grid-column: 1 / -1;
+      background: #eef6f3;
+      border-color: #d2e7dd;
+      font-weight: 700;
+    }
+    .top-sell02 .show-more {
+      margin: 10px auto 0;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #000;
+      color: #fff;
+      border: 1px solid #000;
+      border-radius: 40px;
+      padding: 10px 20px;
+    }
+    .top-sell02 .show-more img { vertical-align: middle; }
+    .top-sell02 .btn-black { background: #000; color: #fff; }
+    .top-sell02 .outline { border: 1px solid #000; }
+    .top-sell02 .spacer {
+      height: 1200px;
+      background: linear-gradient(180deg, rgba(0,0,0,0.03), rgba(0,0,0,0));
+      margin-top: 30px;
+      border-radius: 8px;
+    }
+    @media (max-width: 900px) {
+      .hero { padding: 32px 0 40px; border-radius: 10px; gap: 18px; }
+      .hero__bg { width: 100vw; }
+      .features { gap: 0; }
+    }
+    @media (max-width: 540px) {
+      .top-sell02 .top-sell-product-content { gap: 8px; padding: 10px; }
+      .top-sell02 .compare-item-content { gap: 8px; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <section class="hero">
+      <img src="images/bg_snow.png" alt="" aria-hidden="true" class="hero__bg" loading="lazy" />
+      <img src="images/主BANNER.png" alt="主視覺" class="hero__main" loading="lazy" />
+      <img src="images/保證最低價.png" alt="保證最低價" class="hero__badge" loading="lazy" />
+    </section>
+    <section class="features">
+      <img src="images/大日煤油暖爐_特色00.jpg" alt="大日煤油暖爐 特色 00" loading="lazy" />
+      <img src="images/大日煤油暖爐_特色01.jpg" alt="大日煤油暖爐 特色 01" loading="lazy" />
+      <img src="images/大日煤油暖爐_特色02.jpg" alt="大日煤油暖爐 特色 02" loading="lazy" />
+      <img src="images/大日煤油暖爐_特色03.jpg" alt="大日煤油暖爐 特色 03" loading="lazy" />
+      <img src="images/大日煤油暖爐_特色04.jpg" alt="大日煤油暖爐 特色 04" loading="lazy" />
+      <img src="images/大日煤油暖爐_特色05.jpg" alt="大日煤油暖爐 特色 05" loading="lazy" />
+      <img src="images/大日煤油暖爐_特色06.jpg" alt="大日煤油暖爐 特色 06" loading="lazy" />
+      <img src="images/大日煤油暖爐_特色07.jpg" alt="大日煤油暖爐 特色 07" loading="lazy" />
+      <img src="images/大日煤油暖爐_特色08.jpg" alt="大日煤油暖爐 特色 08" loading="lazy" />
+    </section>
+    <section class="top-sell02" aria-label="run-top-sell-02">
+      <h2>跑步 / 三鐵 熱門錶款（2 欄無選色）</h2>
+      <div class="top-sell-product">
+        <div class="top-sell-product-scroll">
+          <div class="top-sell-product-content" id="top-products-02"></div>
+        </div>
+        <div class="compare-item-wrapper" id="compare-wrapper-02">
+          <div id="run-comparison-02"></div>
+        </div>
+        <div style="text-align:center;">
+          <button class="font-normal btn-black outline show-more" id="toggle-compare-02" type="button">
+            看更多 <img src="https://www.garmin.com.tw/m/buzz/minisite/find-your-watch-v2/images/icons/arrow-down.svg" alt="Arrow" width="16">
+          </button>
+        </div>
+      </div>
+      <div class="spacer" aria-hidden="true"></div>
+    </section>
+  </main>
+<script>
+  const PLACEHOLDER_IMG = "https://www.garmin.com.tw/m/tw/g/products/venu-x1-moss-pd-01-lg.jpg";
+
+  const productSets02 = [
+    { seriesName: "Forerunner 970", imageAlt: "Forerunner 970", desc: "旗艦級多頻 GNSS，內建地圖與高階訓練工具。" },
+    { seriesName: "Forerunner 265", imageAlt: "Forerunner 265", desc: "輕量 AMOLED，日常與跑訓兼備的全能款。" }
+  ];
+
+  const watchSpecs02 = [
+    { title: "錶徑", watch1: "47mm", watch2: "45mm" },
+    { title: "電力<a href=\"javascript:;\" class=\"font-black font-small question-mark\" title=\"說明\">?</a>", watch1: "15天", watch2: "13天" },
+    { title: "錶圈材質", both: "兩款皆：鈦金屬" },
+    { title: "手電筒<a href=\"javascript:;\" class=\"font-black font-small question-mark\" title=\"說明\">?</a>", watch1: "●", watch2: "" },
+    { title: "內建地圖與導航功能<a href=\"javascript:;\" class=\"font-black font-small question-mark\" title=\"說明\">?</a>", watch1: "●", watch2: "" },
+    { title: "跑步經濟性<a href=\"javascript:;\" class=\"font-black font-small question-mark\" title=\"說明\">?</a>", watch1: "●", watch2: "" },
+    { title: "跑步耐受度<a href=\"javascript:;\" class=\"font-black font-small question-mark\" title=\"說明\">?</a>", watch1: "●", watch2: "" },
+    { title: "撥接電話<a href=\"javascript:;\" class=\"font-black font-small question-mark\" title=\"說明\">?</a>", both: "兩款皆：●" },
+    { title: "離線語音聲控<a href=\"javascript:;\" class=\"font-black font-small question-mark\" title=\"Tooltip\">?</a>", both: "兩款皆：●" },
+    { title: "Garmin Coach 自適應訓練計畫<a href=\"javascript:;\" class=\"font-black font-small question-mark\" title=\"Tooltip\">?</a>", both: "兩款皆：●" },
+    { title: "鐵人三項<a href=\"javascript:;\" class=\"font-black font-small question-mark\" title=\"說明\">?</a>", both: "兩款皆：●" },
+    { title: "訓練完備程度<a href=\"javascript:;\" class=\"font-black font-small question-mark\" title=\"說明\">?</a>", both: "兩款皆：●" },
+    { title: "訓練狀態<a href=\"javascript:;\" class=\"font-black font-small question-mark\" title=\"說明\">?</a>", both: "兩款皆：●" },
+    { title: "內建 GNSS 衛星定位<a href=\"javascript:;\" class=\"font-black font-small question-mark\" title=\"說明\">?</a>", both: "<img src=\"https://www.garmin.com.tw/m/buzz/minisite/find-your-watch-v2/images/icons/gps-50.svg\" alt=\"GPS\" width=\"32\">兩款皆：多頻" },
+    { title: "不帶手機也能聽音樂<a href=\"javascript:;\" class=\"font-black font-small question-mark\" title=\"說明\">?</a>", both: "<img src=\"https://www.garmin.com.tw/m/buzz/minisite/find-your-watch-v2/images/icons/music.svg\" alt=\"音樂\" width=\"32\">兩款皆可" },
+    { title: "QUICK RELEASE 錶帶", watch1: "", watch2: "●" },
+    { title: "QUICKFIT 錶帶", watch1: "●", watch2: "" }
+  ];
+
+  const productContainer02 = document.getElementById("top-products-02");
+  productSets02.forEach((item) => {
+    const card = document.createElement("div");
+    card.className = "product-card";
+
+    const img = document.createElement("img");
+    img.src = PLACEHOLDER_IMG;
+    img.alt = item.imageAlt;
+    card.appendChild(img);
+
+    const title = document.createElement("h3");
+    title.textContent = item.seriesName;
+    card.appendChild(title);
+
+    const desc = document.createElement("p");
+    desc.textContent = item.desc;
+    card.appendChild(desc);
+
+    productContainer02.appendChild(card);
+  });
+
+  const compareRoot02 = document.getElementById("run-comparison-02");
+  watchSpecs02.forEach((spec) => {
+    const item = document.createElement("div");
+    item.className = "compare-item";
+
+    const name = document.createElement("h4");
+    name.className = "compare-item-name";
+    const nameSpan = document.createElement("span");
+    nameSpan.className = "font-black font-normal centered-title";
+    nameSpan.innerHTML = spec.title;
+    name.appendChild(nameSpan);
+    item.appendChild(name);
+
+    const content = document.createElement("div");
+    content.className = "compare-item-content";
+    if (spec.both) {
+      const h5 = document.createElement("h5");
+      h5.className = "font-dark-gray font-normal full";
+      h5.innerHTML = spec.both;
+      content.appendChild(h5);
+    } else {
+      ["watch1","watch2"].forEach(key => {
+        const h5 = document.createElement("h5");
+        h5.className = "font-dark-gray font-normal";
+        h5.innerHTML = spec[key] || "";
+        content.appendChild(h5);
+      });
+    }
+    item.appendChild(content);
+    compareRoot02.appendChild(item);
+  });
+
+  const btn02 = document.getElementById("toggle-compare-02");
+  const wrapper02 = document.getElementById("compare-wrapper-02");
+  btn02.addEventListener("click", () => {
+    const on = wrapper02.classList.toggle("on");
+    btn02.innerHTML = on ? '收合 <img src="https://www.garmin.com.tw/m/buzz/minisite/find-your-watch-v2/images/icons/arrow-down.svg" alt="Arrow" width="16" style="transform:rotate(180deg)">' : '看更多 <img src="https://www.garmin.com.tw/m/buzz/minisite/find-your-watch-v2/images/icons/arrow-down.svg" alt="Arrow" width="16">';
+  });
+</script>
+</body>
+</html>
