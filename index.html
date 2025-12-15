@@ -88,7 +88,7 @@
     }
     /* top-sell02 module */
     .top-sell02 {
-      padding: 32px 0 48px;
+      padding: 24px 0 24px;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -129,7 +129,7 @@
     .top-sell02 .top-sell-product {
       width: 100%;
       max-width: 1220px;
-      margin: 0 auto 30px;
+      margin: 0 auto 16px;
       position: relative;
       padding: 0 12px;
       box-sizing: border-box;
@@ -231,7 +231,7 @@
     }
     /* tag3 module */
     .tag3 {
-      padding: 32px 0 48px;
+      padding: 24px 0 24px;
       display: flex;
       justify-content: center;
     }
@@ -452,7 +452,7 @@
               <li class="product-card js-product" data-id="8400909">
                 <a class="product-link js-product-link" data-urlpc="https://www.momoshop.com.tw/goods/GoodsDetail.jsp?i_code=8400909" data-urlphone="https://m.momoshop.com.tw/goods.momo?i_code=8400909" href="https://www.momoshop.com.tw/goods/GoodsDetail.jsp?i_code=8400909" target="_blank">
                   <div class="product-image">
-                    <img class="lazyload js-product-image lazyload-placeholder" src="https://img1.momoshop.com.tw/ecm/img/online/10/007/22/740/images/loadinggif.gif?t=1749628523751" data-original="//img2.momoshop.com.tw/1722094741/goodsimg/0008/400/909/8400909_OR.jpg" alt="【包大人】 乾爽吸收 替換式尿片50*24cm(46片x6包/箱購 搭配成人紙尿褲)">
+                    <img class="lazyload js-product-image lazyload-placeholder" src="https://dglife.tw/cdn/shop/products/HEM-7156.jpg?v=1654765106" data-original="https://dglife.tw/cdn/shop/products/HEM-7156.jpg?v=1654765106" alt="【包大人】 乾爽吸收 替換式尿片50*24cm(46片x6包/箱購 搭配成人紙尿褲)">
                   </div>
                   <div class="product-body">
                     <h3><span class="js-product-tagline">破盤下殺現折2901</span></h3>
@@ -573,13 +573,16 @@
   (function() {
     const imgs = Array.from(document.querySelectorAll('.tag3 img.lazyload'));
     if (!imgs.length) return;
+    imgs.forEach(img => img.addEventListener('load', () => img.classList.remove('lazyload-placeholder')));
+    const eagerImgs = imgs.filter(img => !img.getAttribute('data-original'));
+    eagerImgs.forEach(img => img.classList.remove('lazyload-placeholder'));
     if ('IntersectionObserver' in window) {
       const obs = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
           if (entry.isIntersecting) {
             const img = entry.target;
             const data = img.getAttribute('data-original');
-            if (data) { img.src = data; img.classList.remove('lazyload-placeholder'); }
+            if (data) { img.src = data; }
             obs.unobserve(img);
           }
         });
@@ -588,7 +591,8 @@
     } else {
       const loadAll = () => imgs.forEach(img => {
         const data = img.getAttribute('data-original');
-        if (data) { img.src = data; img.classList.remove('lazyload-placeholder'); }
+        if (data) { img.src = data; }
+        else { img.classList.remove('lazyload-placeholder'); }
       });
       window.addEventListener('scroll', loadAll);
       window.addEventListener('resize', loadAll);
