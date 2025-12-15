@@ -63,13 +63,13 @@
       height: auto;
       cursor: pointer;
       transition: transform 240ms ease, filter 240ms ease;
-      filter: drop-shadow(0 10px 22px rgba(0, 0, 0, 0.16));
+      filter: brightness(1.05) drop-shadow(0 12px 24px rgba(0, 0, 0, 0.18));
+      animation: flicker 1.1s infinite ease-in-out;
       position: relative;
       z-index: 1;
     }
     .hero__badge:hover {
       transform: translateY(-4px) scale(1.02);
-      animation: flicker 1.1s infinite ease-in-out;
     }
     @keyframes flicker {
       0% { filter: brightness(1) drop-shadow(0 10px 22px rgba(0,0,0,0.16)); }
