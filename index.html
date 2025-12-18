@@ -102,7 +102,7 @@
     }
     .banner-glow {
       position: relative;
-      overflow: hidden;
+      overflow: visible;
       width: 100%;
       max-width: 1000px;
       margin: 32px auto;
@@ -111,21 +111,27 @@
       animation: bf-bounce 5s ease-in-out infinite;
       transform-origin: center;
     }
-    .banner-glow img {
+    .banner-glow__inner {
+      position: relative;
+      padding: 0 12px;
+      overflow: hidden;
+      box-sizing: border-box;
+    }
+    .banner-glow__inner img {
       display: block;
       width: 100%;
       margin: 0;
-      padding: 0 12px;
+      padding: 0;
       box-sizing: border-box;
     }
-    .banner-glow::after {
+    .banner-glow__inner::after {
       content: '';
       position: absolute;
       top: 5%;
-      left: 24px;
-      right: 24px;
+      left: 0;
+      right: 0;
       height: 90%;
-      border-radius: 100px;
+      border-radius: 16px;
       background: linear-gradient(110deg,
         rgba(255,255,255,0) 0%,
         rgba(255,223,150,0.25) 30%,
@@ -383,9 +389,12 @@
       <img src="images/主BANNER.png" alt="主視覺" class="hero__main" loading="lazy" />
       <img src="images/保證最低價.png" alt="保證最低價" class="hero__badge" loading="lazy" />
     </section>
+    <img src="images/大日煤油暖爐_必買理由_標題.png" alt="大日煤油暖爐 必買理由 標題" class="banner-features" loading="lazy" />
     <img src="images/大日煤油暖爐_必須跟我們買的理由01.png" alt="大日煤油暖爐 必須跟我們買的理由 01" class="banner-features" loading="lazy" />
     <div class="banner-glow">
-      <img src="images/大日煤油暖爐_必須跟我們買的理由02.png" alt="大日煤油暖爐 必須跟我們買的理由 02" loading="lazy" />
+      <div class="banner-glow__inner">
+        <img src="images/大日煤油暖爐_必須跟我們買的理由02.png" alt="大日煤油暖爐 必須跟我們買的理由 02" loading="lazy" />
+      </div>
     </div>
     <img src="images/大日煤油暖爐_必須跟我們買的理由03.png" alt="大日煤油暖爐 必須跟我們買的理由 03" class="banner-features" loading="lazy" />
     <picture>
