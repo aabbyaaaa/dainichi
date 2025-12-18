@@ -110,12 +110,12 @@
       content: '';
       position: absolute;
       top: 0;
-      left: -50%;
-      width: 50%;
+      left: -60%;
+      width: 60%;
       height: 100%;
-      background: linear-gradient(120deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.4) 50%, rgba(255,255,255,0) 100%);
+      background: linear-gradient(120deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.75) 45%, rgba(255,255,255,0.95) 55%, rgba(255,255,255,0) 100%);
       transform: skewX(-20deg);
-      animation: bf-sheen 3.6s ease-in-out infinite;
+      animation: bf-sheen 3s ease-in-out infinite;
       pointer-events: none;
     }
     @keyframes bf-bounce {
@@ -123,10 +123,10 @@
       50% { transform: translateY(-6px); }
     }
     @keyframes bf-sheen {
-      0% { left: -60%; opacity: 0; }
-      20% { opacity: 1; }
-      50% { left: 120%; opacity: 0.9; }
-      100% { left: 160%; opacity: 0; }
+      0% { left: -70%; opacity: 0; }
+      15% { opacity: 1; }
+      50% { left: 130%; opacity: 1; }
+      100% { left: 170%; opacity: 0; }
     }
     /* top-sell02 module */
     .top-sell02 {
