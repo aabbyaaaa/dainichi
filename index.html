@@ -110,12 +110,14 @@
       content: '';
       position: absolute;
       top: 0;
-      left: -60%;
-      width: 60%;
+      left: -80%;
+      width: 80%;
       height: 100%;
-      background: linear-gradient(120deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.75) 45%, rgba(255,255,255,0.95) 55%, rgba(255,255,255,0) 100%);
+      background: linear-gradient(120deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.85) 45%, rgba(255,255,255,1) 55%, rgba(255,255,255,0) 100%);
+      filter: blur(1px);
       transform: skewX(-20deg);
-      animation: bf-sheen 3s ease-in-out infinite;
+      mix-blend-mode: screen;
+      animation: bf-sheen 2.2s ease-in-out infinite;
       pointer-events: none;
     }
     @keyframes bf-bounce {
@@ -123,10 +125,10 @@
       50% { transform: translateY(-6px); }
     }
     @keyframes bf-sheen {
-      0% { left: -70%; opacity: 0; }
-      15% { opacity: 1; }
-      50% { left: 130%; opacity: 1; }
-      100% { left: 170%; opacity: 0; }
+      0% { left: -90%; opacity: 0; }
+      10% { opacity: 1; }
+      50% { left: 140%; opacity: 1; }
+      100% { left: 200%; opacity: 0; }
     }
     /* top-sell02 module */
     .top-sell02 {
