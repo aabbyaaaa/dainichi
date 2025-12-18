@@ -106,7 +106,7 @@
       width: 100%;
       max-width: 1000px;
       margin: 32px auto;
-      padding: 0 12px;
+      padding: 0;
       box-sizing: border-box;
       animation: bf-bounce 5s ease-in-out infinite;
       transform-origin: center;
@@ -131,10 +131,10 @@
         rgba(255,255,255,0.65) 50%,
         rgba(255,223,150,0.25) 70%,
         rgba(255,255,255,0) 100%);
-      filter: drop-shadow(0 0 6px rgba(255, 223, 150, 0.3));
+      filter: drop-shadow(0 0 3px rgba(255, 223, 150, 0.3));
       transform: skewX(-18deg);
       mix-blend-mode: screen;
-      opacity: 0.6;
+      opacity: 0.3;
       animation: bf-sheen 3.2s ease-in-out infinite;
       pointer-events: none;
     }
@@ -144,8 +144,8 @@
     }
     @keyframes bf-sheen {
       0% { left: -140%; opacity: 0; }
-      12% { opacity: 0.9; }
-      55% { left: 150%; opacity: 0.9; }
+      12% { opacity: 0.6; }
+      55% { left: 150%; opacity: 0.6; }
       100% { left: 220%; opacity: 0; }
     }
     /* top-sell02 module */
