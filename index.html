@@ -358,6 +358,16 @@
       padding: 0 12px;
       box-sizing: border-box;
     }
+    .area00-embed {
+      width: 100%;
+      display: block;
+      border: 0;
+      margin: 32px auto;
+      min-height: 2200px;
+    }
+    @media (max-width: 767px) {
+      .area00-embed { min-height: 2600px; }
+    }
     @media (max-width: 900px) {
       .hero { padding: 32px 0 40px; border-radius: 10px; gap: 18px; }
       .hero__bg { width: 100vw; }
@@ -595,6 +605,7 @@
         </div>
       </div>
     </section>
+    <iframe src="images/area00_BLOCK.html" class="area00-embed" loading="lazy" title="Area00 商品模組"></iframe>
   </main>
 <script>
   const PLACEHOLDER_IMG = "https://www.garmin.com.tw/m/tw/g/products/venu-x1-moss-pd-01-lg.jpg";
