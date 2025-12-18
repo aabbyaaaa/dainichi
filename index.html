@@ -100,29 +100,42 @@
       padding: 0 12px;
       box-sizing: border-box;
     }
-    .banner-features--glow {
+    .banner-glow {
       position: relative;
       overflow: hidden;
+      width: 100%;
+      max-width: 1000px;
+      margin: 32px auto;
+      padding: 0 12px;
+      box-sizing: border-box;
       animation: bf-bounce 5s ease-in-out infinite;
       transform-origin: center;
     }
-    .banner-features--glow::after {
+    .banner-glow img {
+      display: block;
+      width: 100%;
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    .banner-glow::after {
       content: '';
       position: absolute;
       top: 0;
-      left: -90%;
-      width: 80%;
+      left: -120%;
+      width: 120%;
       height: 100%;
       background: linear-gradient(110deg,
-        rgba(255,203,112,0) 0%,
-        rgba(255,203,112,0.25) 35%,
-        rgba(255,233,170,0.9) 50%,
-        rgba(255,203,112,0.25) 65%,
-        rgba(255,203,112,0) 100%);
-      filter: drop-shadow(0 0 14px rgba(255, 203, 112, 0.8));
+        rgba(255,255,255,0) 0%,
+        rgba(255,223,150,0.45) 30%,
+        rgba(255,255,255,1) 50%,
+        rgba(255,223,150,0.45) 70%,
+        rgba(255,255,255,0) 100%);
+      filter: drop-shadow(0 0 10px rgba(255, 223, 150, 0.7));
       transform: skewX(-18deg);
-      mix-blend-mode: overlay;
-      animation: bf-sheen 2.2s ease-in-out infinite;
+      mix-blend-mode: screen;
+      opacity: 0.85;
+      animation: bf-sheen 3.2s ease-in-out infinite;
       pointer-events: none;
     }
     @keyframes bf-bounce {
@@ -130,10 +143,10 @@
       50% { transform: translateY(-6px); }
     }
     @keyframes bf-sheen {
-      0% { left: -90%; opacity: 0; }
-      10% { opacity: 1; }
-      50% { left: 140%; opacity: 1; }
-      100% { left: 200%; opacity: 0; }
+      0% { left: -140%; opacity: 0; }
+      12% { opacity: 0.9; }
+      55% { left: 150%; opacity: 0.9; }
+      100% { left: 220%; opacity: 0; }
     }
     /* top-sell02 module */
     .top-sell02 {
@@ -370,7 +383,9 @@
       <img src="images/保證最低價.png" alt="保證最低價" class="hero__badge" loading="lazy" />
     </section>
     <img src="images/大日煤油暖爐_必須跟我們買的理由01.png" alt="大日煤油暖爐 必須跟我們買的理由 01" class="banner-features" loading="lazy" />
-    <img src="images/大日煤油暖爐_必須跟我們買的理由02.png" alt="大日煤油暖爐 必須跟我們買的理由 02" class="banner-features banner-features--glow" loading="lazy" />
+    <div class="banner-glow">
+      <img src="images/大日煤油暖爐_必須跟我們買的理由02.png" alt="大日煤油暖爐 必須跟我們買的理由 02" loading="lazy" />
+    </div>
     <img src="images/大日煤油暖爐_必須跟我們買的理由03.png" alt="大日煤油暖爐 必須跟我們買的理由 03" class="banner-features" loading="lazy" />
     <picture>
       <source srcset="images/大日煤油暖爐_10個理由_手機版.png" media="(max-width: 900px)">
