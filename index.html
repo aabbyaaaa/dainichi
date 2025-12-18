@@ -100,6 +100,34 @@
       padding: 0 12px;
       box-sizing: border-box;
     }
+    .banner-features--glow {
+      position: relative;
+      overflow: hidden;
+      animation: bf-bounce 5s ease-in-out infinite;
+      transform-origin: center;
+    }
+    .banner-features--glow::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -50%;
+      width: 50%;
+      height: 100%;
+      background: linear-gradient(120deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.4) 50%, rgba(255,255,255,0) 100%);
+      transform: skewX(-20deg);
+      animation: bf-sheen 3.6s ease-in-out infinite;
+      pointer-events: none;
+    }
+    @keyframes bf-bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-6px); }
+    }
+    @keyframes bf-sheen {
+      0% { left: -60%; opacity: 0; }
+      20% { opacity: 1; }
+      50% { left: 120%; opacity: 0.9; }
+      100% { left: 160%; opacity: 0; }
+    }
     /* top-sell02 module */
     .top-sell02 {
       padding: 0;
@@ -335,7 +363,7 @@
       <img src="images/保證最低價.png" alt="保證最低價" class="hero__badge" loading="lazy" />
     </section>
     <img src="images/大日煤油暖爐_必須跟我們買的理由01.png" alt="大日煤油暖爐 必須跟我們買的理由 01" class="banner-features" loading="lazy" />
-    <img src="images/大日煤油暖爐_必須跟我們買的理由02.png" alt="大日煤油暖爐 必須跟我們買的理由 02" class="banner-features" loading="lazy" />
+    <img src="images/大日煤油暖爐_必須跟我們買的理由02.png" alt="大日煤油暖爐 必須跟我們買的理由 02" class="banner-features banner-features--glow" loading="lazy" />
     <img src="images/大日煤油暖爐_必須跟我們買的理由03.png" alt="大日煤油暖爐 必須跟我們買的理由 03" class="banner-features" loading="lazy" />
     <picture>
       <source srcset="images/大日煤油暖爐_10個理由_手機版.png" media="(max-width: 900px)">
