@@ -15,6 +15,138 @@
       --page-bg: #f3d878;
       --text-color: #1f1f1f;
     }
+    /* countdown header */
+    .countdown-header {
+      --brand: #ff4200;
+      --brand-dark: #e33a00;
+      --bar-bg-1: #b2002f;
+      --bar-bg-2: #970026;
+      --text: #f7f7f7;
+      --card: rgba(255, 255, 255, 0.08);
+      --card-border: rgba(255, 255, 255, 0.2);
+      --card-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      margin-bottom: 8px;
+    }
+    .countdown-header header {
+      background: linear-gradient(120deg, var(--bar-bg-1), var(--bar-bg-2));
+      padding: 18px 16px;
+      color: var(--text);
+      box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+    }
+    .countdown-header .inner {
+      max-width: 1280px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1.1fr 1.6fr 1.1fr;
+      align-items: center;
+      gap: 12px;
+    }
+    .countdown-header .logo {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 6px;
+      align-items: flex-start;
+      text-decoration: none;
+    }
+    .countdown-header .logo-img {
+      height: 80px;
+      width: auto;
+      display: none;
+      max-width: 200px;
+      object-fit: contain;
+    }
+    .countdown-header .logo-img.desktop { display: block; }
+    .countdown-header .logo-main {
+      font-weight: 900;
+      font-size: 32px;
+      letter-spacing: 0.02em;
+    }
+    .countdown-header .logo-sub {
+      font-size: 18px;
+      font-weight: 600;
+      letter-spacing: 0.1em;
+    }
+    .countdown-header .countdown-wrap {
+      text-align: center;
+      display: grid;
+      gap: 10px;
+      justify-items: center;
+    }
+    .countdown-header .label {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(0, 0, 0, 0.12);
+      padding: 6px 12px;
+      border-radius: 999px;
+      font-size: 13px;
+      letter-spacing: 0.05em;
+    }
+    .countdown-header .label span:first-child { font-size: 14px; }
+    .countdown-header .countdown {
+      display: inline-flex;
+      align-items: center;
+      gap: 12px;
+      font-variant-numeric: tabular-nums;
+    }
+    .countdown-header .time-box {
+      min-width: 68px;
+      height: 70px;
+      border-radius: 10px;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0.06), rgba(0, 0, 0, 0.08));
+      border: 1px solid var(--card-border);
+      box-shadow: var(--card-shadow);
+      display: grid;
+      place-items: center;
+      padding: 8px;
+    }
+    .countdown-header .time-box strong {
+      display: block;
+      font-size: 24px;
+      font-weight: 800;
+      color: #fff;
+    }
+    .countdown-header .time-box small {
+      color: #ffe6d7;
+      font-size: 12px;
+      letter-spacing: 0.08em;
+    }
+    .countdown-header .colon {
+      color: #ffd7c2;
+      font-size: 26px;
+      font-weight: 800;
+      text-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+    }
+    .countdown-header .cta {
+      justify-self: end;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      padding: 16px 22px;
+      border-radius: 999px;
+      border: none;
+      font-weight: 800;
+      font-size: 15px;
+      color: #fff;
+      background: radial-gradient(circle at 20% 20%, #ffd65c, #ffb800 55%, #e38400 100%),
+                  linear-gradient(120deg, var(--brand), var(--brand-dark));
+      cursor: pointer;
+      box-shadow: 0 12px 30px rgba(227, 58, 0, 0.35);
+      text-decoration: none;
+      transition: transform 0.15s ease, box-shadow 0.15s ease, filter 0.15s ease;
+      white-space: nowrap;
+    }
+    .countdown-header .cta:hover {
+      filter: brightness(1.05);
+      transform: translateY(-1px);
+      box-shadow: 0 14px 34px rgba(227, 58, 0, 0.45);
+    }
+    .countdown-header .cta:active { transform: translateY(0); }
     * { box-sizing: border-box; }
     body {
       margin: 0;
@@ -372,6 +504,42 @@
       .hero__bg { width: 100vw; }
       .features { gap: 0; }
     }
+    @media (max-width: 960px) {
+      .countdown-header .inner {
+        grid-template-columns: 1fr;
+        gap: 18px;
+        text-align: center;
+      }
+      .countdown-header .logo { align-items: center; }
+      .countdown-header .cta { justify-self: center; width: 100%; max-width: 360px; }
+      .countdown-header header { padding: 16px 12px; }
+    }
+    @media (max-width: 640px) {
+      .countdown-header header { padding: 12px 10px; }
+      .countdown-header .inner { gap: 12px; }
+      .countdown-header .label { display: none; }
+      .countdown-header .logo-main, .countdown-header .logo-sub { display: none; }
+      .countdown-header .logo-img.desktop { display: none; }
+      .countdown-header .logo-img.mobile {
+        display: block;
+        margin: 0 auto;
+        height: 28px;
+        max-width: 180px;
+      }
+      .countdown-header .countdown { gap: 6px; }
+      .countdown-header .time-box {
+        min-width: 52px;
+        height: 56px;
+        padding: 6px;
+      }
+      .countdown-header .time-box strong { font-size: 18px; }
+      .countdown-header .time-box small { font-size: 11px; }
+      .countdown-header .colon { font-size: 20px; }
+      .countdown-header .cta {
+        padding: 12px 18px;
+        font-size: 14px;
+      }
+    }
     @media (max-width: 1220px) {
       .features {
         padding: 0 12px;
@@ -392,6 +560,44 @@
   </style>
 </head>
 <body>
+  <section class="countdown-header" aria-label="限定優惠倒數">
+    <header>
+      <div class="inner">
+        <a class="logo" href="https://dglife.tw/" target="_blank" rel="noopener noreferrer">
+          <img class="logo-img desktop" src="images/logo新配色-DGLife德記生活-白色-02.png" alt="DGLife 德記生活">
+          <img class="logo-img mobile" src="images/白色-德記生活橫式logo.png" alt="DGLife 德記生活">
+        </a>
+        <div class="countdown-wrap" aria-live="polite">
+          <div class="label">
+            <span>⚡</span>
+            <span>限定優惠倒數</span>
+          </div>
+          <div class="countdown" data-target-time="2025-12-31T15:59:59Z">
+            <div class="time-box">
+              <strong data-unit="days">--</strong>
+              <small>天</small>
+            </div>
+            <div class="colon">:</div>
+            <div class="time-box">
+              <strong data-unit="hours">--</strong>
+              <small>時</small>
+            </div>
+            <div class="colon">:</div>
+            <div class="time-box">
+              <strong data-unit="minutes">--</strong>
+              <small>分</small>
+            </div>
+            <div class="colon">:</div>
+            <div class="time-box">
+              <strong data-unit="seconds">--</strong>
+              <small>秒</small>
+            </div>
+          </div>
+        </div>
+        <a class="cta" href="https://lin.ee/mVmOsJT">私訊LINE，揭曉驚喜價格 ➜</a>
+      </div>
+    </header>
+  </section>
   <main>
     <section class="hero">
       <img src="images/bg_snow.png" alt="" aria-hidden="true" class="hero__bg" loading="lazy" />
@@ -441,6 +647,7 @@
     </section>
 
     <img src="images/大日煤油暖爐標題_69折起限定優惠.png" alt="大日煤油暖爐 加購熱敷墊69折" class="banner-tag3" loading="lazy" />
+    <img src="images/選配大升級.jpg" alt="選配大升級" class="banner-tag3" loading="lazy" />
     <section class="tag3" aria-label="recommend-section">
       <div class="section section-wide product-section section-recommend" id="section-recommend">
         <div class="banner-pc">
@@ -742,6 +949,52 @@
       window.addEventListener('resize', loadAll);
       loadAll();
     }
+  })();
+</script>
+<script>
+  (function countdownHeader() {
+    const countdownEl = document.querySelector('.countdown-header .countdown');
+    const labelEl = document.querySelector('.countdown-header .label span:nth-child(2)');
+    if (!countdownEl) return;
+    const timeSpans = {
+      days: countdownEl.querySelector('[data-unit="days"]'),
+      hours: countdownEl.querySelector('[data-unit="hours"]'),
+      minutes: countdownEl.querySelector('[data-unit="minutes"]'),
+      seconds: countdownEl.querySelector('[data-unit="seconds"]'),
+    };
+    const targetStr = countdownEl.getAttribute('data-target-time');
+
+    function pad(num) { return String(num).padStart(2, '0'); }
+
+    function updateCountdown() {
+      if (!targetStr) return;
+      const now = Date.now();
+      const target = Date.parse(targetStr);
+      if (Number.isNaN(target)) {
+        if (labelEl) labelEl.textContent = '時間格式錯誤';
+        return;
+      }
+      let diff = target - now;
+      if (diff <= 0) {
+        if (labelEl) labelEl.textContent = '活動已結束';
+        Object.values(timeSpans).forEach(span => span && (span.textContent = '00'));
+        clearInterval(timer);
+        return;
+      }
+      const seconds = Math.floor(diff / 1000);
+      const days = Math.floor(seconds / 86400);
+      const hours = Math.floor((seconds % 86400) / 3600);
+      const minutes = Math.floor((seconds % 3600) / 60);
+      const secs = seconds % 60;
+
+      if (timeSpans.days) timeSpans.days.textContent = pad(days);
+      if (timeSpans.hours) timeSpans.hours.textContent = pad(hours);
+      if (timeSpans.minutes) timeSpans.minutes.textContent = pad(minutes);
+      if (timeSpans.seconds) timeSpans.seconds.textContent = pad(secs);
+    }
+
+    const timer = setInterval(updateCountdown, 1000);
+    updateCountdown();
   })();
 </script>
 </body>

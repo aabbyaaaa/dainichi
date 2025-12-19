@@ -41,7 +41,16 @@
       flex-direction: column;
       justify-content: center;
       gap: 6px;
+      align-items: flex-start;
     }
+    .logo-img {
+      height: 80px;
+      width: auto;
+      display: none;
+      max-width: 200px;
+      object-fit: contain;
+    }
+    .logo-img.desktop { display: block; }
     .logo-main {
       font-weight: 900;
       font-size: 32px;
@@ -148,23 +157,40 @@
       header { padding: 16px 12px; }
     }
     @media (max-width: 640px) {
-      .countdown { gap: 8px; }
-      .time-box {
-        min-width: 58px;
-        height: 62px;
+      header { padding: 12px 10px; }
+      .inner { gap: 12px; }
+      .label { display: none; }
+      .logo-main, .logo-sub { display: none; }
+      .logo-img.desktop { display: none; }
+      .logo-img.mobile {
+        display: block;
+        margin: 0 auto;
+        height: 28px;
+        max-width: 180px;
       }
-      .time-box strong { font-size: 20px; }
-      .colon { font-size: 22px; }
+      .countdown { gap: 6px; }
+      .time-box {
+        min-width: 52px;
+        height: 56px;
+        padding: 6px;
+      }
+      .time-box strong { font-size: 18px; }
+      .time-box small { font-size: 11px; }
+      .colon { font-size: 20px; }
+      .cta {
+        padding: 12px 18px;
+        font-size: 14px;
+      }
     }
   </style>
 </head>
 <body>
   <header>
     <div class="inner">
-      <div class="logo">
-        <div class="logo-main">DGLife</div>
-        <div class="logo-sub">德記生活</div>
-      </div>
+      <a class="logo" href="https://dglife.tw/" target="_blank" rel="noopener noreferrer">
+        <img class="logo-img desktop" src="images/logo新配色-DGLife德記生活-白色-02.png" alt="DGLife 德記生活">
+        <img class="logo-img mobile" src="images/白色-德記生活橫式logo.png" alt="DGLife 德記生活">
+      </a>
       <div class="countdown-wrap" aria-live="polite">
         <div class="label">
           <span>⚡</span>
@@ -192,7 +218,7 @@
           </div>
         </div>
       </div>
-      <a class="cta" href="#">私訊了解優惠 ➜</a>
+      <a class="cta" target="_blank" href="https://lin.ee/mVmOsJT">私訊LINE，揭曉驚喜價格 ➜</a>
     </div>
   </header>
   <main>
