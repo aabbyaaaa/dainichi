@@ -132,21 +132,32 @@
       border: none;
       font-weight: 800;
       font-size: 15px;
-      color: #fff;
-      background: radial-gradient(circle at 20% 20%, #ffd65c, #ffb800 55%, #e38400 100%),
-                  linear-gradient(120deg, var(--brand), var(--brand-dark));
+      color: #970026;
+      background:
+        radial-gradient(circle at 20% 20%, #ffe78d 0%, #ffd24f 45%, #ffac21 100%),
+        linear-gradient(120deg, #ff6a00, #ff4200);
       cursor: pointer;
-      box-shadow: 0 12px 30px rgba(227, 58, 0, 0.35);
+      box-shadow: 0 14px 30px rgba(255, 138, 0, 0.5);
       text-decoration: none;
       transition: transform 0.15s ease, box-shadow 0.15s ease, filter 0.15s ease;
       white-space: nowrap;
     }
     .countdown-header .cta:hover {
-      filter: brightness(1.05);
+      filter: brightness(1.08);
       transform: translateY(-1px);
-      box-shadow: 0 14px 34px rgba(227, 58, 0, 0.45);
+      box-shadow: 0 16px 34px rgba(255, 138, 0, 0.6);
+      
+      color:black;
     }
-    .countdown-header .cta:active { transform: translateY(0); }
+    .countdown-header .cta:active {
+      transform: translateY(0);
+      filter: brightness(0.98);
+      box-shadow: 0 10px 22px rgba(255, 138, 0, 0.45);
+    }
+    .countdown-header .cta:focus-visible {
+      outline: 2px solid #fff3c4;
+      outline-offset: 3px;
+    }
     * { box-sizing: border-box; }
     body {
       margin: 0;
@@ -594,7 +605,7 @@
             </div>
           </div>
         </div>
-        <a class="cta" href="https://lin.ee/mVmOsJT">私訊LINE，揭曉驚喜價格 ➜</a>
+        <a class="cta" href="https://lin.ee/mVmOsJT" target="_blank" >私訊LINE，揭曉驚喜價格 ➜</a>
       </div>
     </header>
   </section>
@@ -607,7 +618,9 @@
     <img src="images/大日煤油暖爐標題_3大必買理由.png" alt="大日煤油暖爐 必買理由 標題" class="banner-features" loading="lazy" />
     <div class="banner-glow">
       <div class="banner-glow__inner">
-        <img src="images/大日煤油暖爐_必須跟我們買的理由02.png" alt="大日煤油暖爐 必須跟我們買的理由 02" loading="lazy" />
+        <a href="https://lin.ee/mVmOsJT" target="_blank" rel="noopener noreferrer">
+          <img src="images/大日煤油暖爐_必須跟我們買的理由02.png" alt="大日煤油暖爐 必須跟我們買的理由 02" loading="lazy" />
+        </a>
       </div>
     </div>
     <img src="images/大日煤油暖爐_必須跟我們買的理由03.png" alt="大日煤油暖爐 必須跟我們買的理由 03" class="banner-features" loading="lazy" />
